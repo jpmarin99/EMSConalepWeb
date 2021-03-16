@@ -1,12 +1,12 @@
 @extends('adminlte::page')
 
-@section('title', 'EMS Conalep')
+@section('title', 'Informacion Aviso')
 
 @section('content_header')
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2> Mostrar aviso</h2>
+                <h2> Información del aviso</h2>
             </div>
         </div>
     </div>

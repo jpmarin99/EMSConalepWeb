@@ -12,8 +12,10 @@ class AvisoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
+
         $avisos = Aviso::latest()->paginate(5);
 
         return view('avisos.index',compact('avisos'))
@@ -30,6 +32,7 @@ class AvisoController extends Controller
         return view('avisos.create');
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -41,12 +44,16 @@ class AvisoController extends Controller
         $request->validate([
             'titulo' => 'required',
             'detalle' => 'required',
+            'Grupo'     => 'required',
+
+
    ]);
 
-        Aviso::create($request->all());
 
+
+        Aviso::create($request->all());
         return redirect()->route('avisos.index')
-            ->with('success','Aviso publicado.');
+            ->with('success','Aviso creado.');
 
 
 
@@ -60,7 +67,9 @@ class AvisoController extends Controller
      */
     public function show(Aviso $aviso)
     {
-        return view('avisos.show',compact('aviso'));
+        //return view('avisos.show',compact('aviso'));
+
+        return $aviso;
     }
 
     /**
@@ -86,13 +95,18 @@ class AvisoController extends Controller
         $request->validate([
             'titulo' => 'required',
             'detalle' => 'required',
+            'Grupo'=> 'required',
+
         ]);
 
         $aviso->update($request->all());
 
         return redirect()->route('avisos.index')
-            ->with('success','Aviso actulizado');
+            ->with('success','Aviso actualizado');
     }
+
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -107,4 +121,11 @@ class AvisoController extends Controller
         return redirect()->route('avisos.index')
             ->with('success','Aviso eliminado');
     }
+
+    public function picture(){
+        return view('avisos.gallery');
+    }
+
+
+
 }

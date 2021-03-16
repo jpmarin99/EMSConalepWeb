@@ -26,6 +26,6 @@ class HomeController extends Controller
     {
         $id=Auth::User()->all;
         $user=user::find($id);
-        return view('avisos.index');
+        return view('dashboard');
     }
 }

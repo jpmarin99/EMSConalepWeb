@@ -1,8 +1,15 @@
 @extends('adminlte::page')
 
-@section('title', 'EMS Conalep')
+@section('title', 'Crear Aviso')
+@section('plugins.Sweetalert2')
 
 @section('content_header')
+    <script src="https://cdn.tiny.cloud/1/h98l405j6xsri44ea6r589dgvgp65douwg0m7ndutug3aiqa/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#mytextarea'
+        });
+    </script>
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -13,10 +20,10 @@
     @stop
 @section('content')
 
-
+<!-- Obtencion de errores de entrada o datos nulos--->
     @if ($errors->any())
         <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <strong>Whoops!</strong> Hay unos problemas con tu entrada.<br><br>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -25,24 +32,47 @@
         </div>
     @endif
 
-    <form action="{{ route('avisos.store') }}" method="POST">
+    <form action="{{ route('avisos.store') }}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
         @csrf
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Titulo:</strong>
-                    <input type="text" name="titulo" class="form-control" placeholder="titulo">
+                    <strong>Título:</strong>
+                    <input type="text" name="titulo" class="form-control" placeholder="Título">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Detalles:</strong>
-                    <textarea class="form-control" style="height:150px" name="detalle" placeholder="Detalles"></textarea>
+                    <textarea id="mytextarea" name="detalle">
+                     Hello, World!
+                        </textarea>
                 </div>
             </div>
+
+            <div class="form-group col-md-4">
+                <label for="inputGrupo">Asignado a</label>
+                <select id="Grupo" name="Grupo" class="form-control">
+                    <option selected>Todos</option>
+                    <option>IDGS8</option>
+                    <option>MECA2020</option>
+                    <option>INM2020</option>
+                    <option>GAS2020</option>
+                </select>
+            </div>
+
+
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Añadir</button>
+                <script>
+                    Swal.fire(
+                        'Good job!',
+                        'You clicked the button!',
+                        'success'
+                    )
+                </script>
+                <button type="submit" onClick="Swal.fire();"
+                        class="btn btn-success">Añadir</button>
             </div>
         </div>
 

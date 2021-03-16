@@ -17,6 +17,8 @@ class CreateAvisosTable extends Migration
             $table->bigIncrements('id');
             $table->string('titulo');
             $table->text('detalle');
+            $table->text('Grupo');
+
             $table->timestamps();
         });
     }

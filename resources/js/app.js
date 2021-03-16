@@ -5,6 +5,9 @@
  */
 
 require('./bootstrap');
+require('./datatables');
+require('./dataTables.semanticui.min');
+require('./jquery.dataTables.min');
 
 window.Vue = require('vue');
 

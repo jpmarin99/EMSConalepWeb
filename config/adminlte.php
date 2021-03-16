@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'EMS Conalep',
+    'title' => 'SAIEU',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,12 +45,12 @@ return [
     |
     */
 
-    'logo' => '<b>EMS</b>CONALEP',
+    'logo' => '<b>SAIEU</b>UT',
     'logo_img' => 'vendor/adminlte/dist/img/conalep.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'EMS Conalep',
+    'logo_img_alt' => 'SAIEU',
 
     /*
     |--------------------------------------------------------------------------
@@ -188,7 +188,7 @@ return [
 
     'use_route_url' => false,
 
-    'dashboard_url' => 'avisos',
+    'dashboard_url' => 'dashboard',
 
     'logout_url' => 'logout',
 
@@ -237,16 +237,30 @@ return [
             'topnav' => true,
         ],
 
-        ['header' => 'Opciones de administrador'],
+        ['header' => 'Opciones del administrador'],
         [
             'text' => 'Dashboard',
-            'url'  => '/avisos',
+            'url'  => '/dashboard',
             'icon' => 'fas fa-fw fa fa-desktop ',
         ],
         [
-            'text' => 'Crear aviso',
-            'url'  => '/avisos/create',
+            'text' => 'Avisos',
+            'url'  => '/avisos',
             'icon' => 'fas fa-fw fa-bullhorn ',
+        ],
+
+        [
+            'text'    => 'Usuarios',
+            'url'     =>'/usuarios',
+            'icon'    => 'fa fa-user ',
+
+        ],
+
+        [
+            'text'    => 'Grupos',
+            'url'     =>'/grupos',
+            'icon'    => 'fa fa-users ',
+
         ],
 
         [
@@ -255,6 +269,7 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -297,17 +312,17 @@ return [
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
+                    'location' => 'vendor/datatables/js/jquery.dataTables.js',
                 ],
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
+                    'location' => 'vendor/datatables/js/dataTables.bootstrap4.js',
                 ],
                 [
                     'type' => 'css',
                     'asset' => true,
-                    'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
+                    'location' => 'vendor/datatables/css/dataTables.bootstrap4.css',
                 ],
             ],
         ],
@@ -327,22 +342,22 @@ return [
             ],
         ],
         'Chartjs' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
+                    'asset' => true,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
                 ],
             ],
         ],
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    'asset' => true,
+                    'location' => 'vendor/sweetalert2/sweetalert2.all.js',
                 ],
             ],
         ],

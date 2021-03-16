@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,11 @@ Route::get('/', function () {
 });
 Auth::routes();
 Route::resource('avisos','AvisoController');
-
+Route::resource('usuarios','UsuarioController');
+Route::resource('grupos','GrupoController');
+Route::get('/dashboard', function (){
+    return view('dashboard');
+});
 
 
 
