@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 @extends('layouts.layoutsTablas')
-@section('title', 'GRUPOS')
+<title>GRUPOS</title>
 
 @section('plugins.Datatables')
 @section('plugins.Sweetalert2')

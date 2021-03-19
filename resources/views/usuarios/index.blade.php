@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 @extends('layouts.layoutsTablas')
-@section('title', 'USUARIOS')
+<title>USUARIOS</title>
 
 @section('plugins.Datatables')
 @section('plugins.Sweetalert2')

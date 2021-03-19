@@ -24,6 +24,7 @@ Route::resource('grupos','GrupoController');
 Route::get('/dashboard', function (){
     return view('dashboard');
 });
+Route::get('pdf', 'AvisoController@pdf')->name('GenerarPDF');
 
 
 

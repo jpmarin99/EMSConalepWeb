@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 @extends('layouts.layoutsTablas')
-@section('title', 'AVISOS')
+<title>AVISOS</title>
 
 @section('plugins.Datatables')
 @section('plugins.Sweetalert2')
@@ -37,7 +37,9 @@
                 <br>
                 <h5 style="text-align: left"><i class="fa fa-newspaper" aria-hidden="true"></i><strong>  AVISOS</strong>
                     <a class="btn btn-success" href="{{ route('avisos.create') }}"><i class="fa fa-plus-circle" aria-hidden="false"></i> Crear  </a>
-                    <a class="btn btn-danger" href="#"><i class="fa fa-trash" aria-hidden="false"></i> Borrado masivo</a></h5>
+                    <a class="btn btn-danger" href="#"><i class="fa fa-trash" aria-hidden="false"></i> Borrado masivo</a>
+                    <a class="btn btn-info" href="/pdf"><i class="fa fa-file-download" aria-hidden="false"></i> Generar PDF</a>
+                </h5>
 
 
                 <div class="table-responsive">
@@ -93,6 +95,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </form>
                 </td>
             </tr>

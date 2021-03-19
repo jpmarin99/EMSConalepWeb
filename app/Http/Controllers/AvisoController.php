@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Aviso;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AvisoController extends Controller
 {
@@ -105,7 +107,16 @@ class AvisoController extends Controller
             ->with('success','Aviso actualizado');
     }
 
+        public function pdf(){
+            $avisos = Aviso::latest()->paginate(5);
 
+            $pdf = PDF::loadView('avisos.pdf',compact('avisos'));
+
+
+            $pdf->setPaper('a4', 'landscape');
+            return $pdf->stream('TablaDeAsistencias.pdf');
+
+        }
 
 
     /**
@@ -122,8 +133,11 @@ class AvisoController extends Controller
             ->with('success','Aviso eliminado');
     }
 
-    public function picture(){
-        return view('avisos.gallery');
+    public function eliminar(){
+        DB::table('avisos')->truncate();
+
+        return redirect()->route('avisos.index')
+            ->with('success','Avisos eliminados');
     }
 
 

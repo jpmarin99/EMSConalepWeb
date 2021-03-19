@@ -45,8 +45,8 @@ return [
     |
     */
 
-    'logo' => '<b>SAIEU</b>UT',
-    'logo_img' => 'vendor/adminlte/dist/img/conalep.png',
+    'logo' => '<b>SAIEU</b>-UT',
+    'logo_img' => 'vendor/adminlte/dist/img/UT.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -261,6 +261,23 @@ return [
             'url'     =>'/grupos',
             'icon'    => 'fa fa-users ',
 
+        ],
+
+        [
+            'text'    => 'Sección de ayuda',
+            'icon'    => 'fa fa-info-circle',
+            'submenu' => [
+                [
+                    'text' => 'Preguntas Frecuentes',
+                    'icon'    => 'fa fa-question-circle ',
+                    'url'  => 'menu/child1',
+                ],
+                [
+                    'text' => 'Contactenos',
+                    'url'  => 'menu/child2',
+                    'icon'    => 'fa fa-phone ',
+                ],
+            ],
         ],
 
         [
