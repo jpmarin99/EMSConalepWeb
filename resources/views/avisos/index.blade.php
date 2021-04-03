@@ -37,6 +37,7 @@
                 <br>
                 <h5 style="text-align: left"><i class="fa fa-newspaper" aria-hidden="true"></i><strong>  AVISOS</strong>
                     <a class="btn btn-success" href="{{ route('avisos.create') }}"><i class="fa fa-plus-circle" aria-hidden="false"></i> Crear  </a>
+                    <a class="btn btn-success" href="https://docs.google.com/forms/d/1Jn2MJ3L8ePOAKK725OfXFTNZt49sbi3ojSJYX7K-muw/edit" target="_blank"><i class="fa fa-plus-circle" aria-hidden="false"></i> Crear Convocatoria </a>
                     <a class="btn btn-danger" href="#"><i class="fa fa-trash" aria-hidden="false"></i> Borrado masivo</a>
                     <a class="btn btn-info" href="/pdf"><i class="fa fa-file-download" aria-hidden="false"></i> Generar PDF</a>
                 </h5>

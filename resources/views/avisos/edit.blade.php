@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar Usuario')
+@section('title', 'Editar AVISO')
 
 @section('content_header')
     <script src="https://cdn.tiny.cloud/1/h98l405j6xsri44ea6r589dgvgp65douwg0m7ndutug3aiqa/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
@@ -51,9 +51,10 @@
                     <label for="inputGrupo">Asignado a</label>
                     <select id="Grupo" name="Grupo" class="form-control">
                         <option selected>{{ $aviso->Grupo }}</option>
-                        <option>1°</option>
-                        <option>2°</option>
-                        <option>3°</option>
+                        <option>IDGS8</option>
+                        <option>GAS2020</option>
+                        <option>MECA2020</option>
+                        <option>IDGS8</option>
 
                     </select>
                 </div>

@@ -18,7 +18,9 @@ class AvisoController extends Controller
     public function index()
     {
 
-        $avisos = Aviso::latest()->paginate(5);
+        $avisos = Aviso::latest()->paginate(15);
+
+        $avisos->appends(['sort'=>'Grupo']);
 
         return view('avisos.index',compact('avisos'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -29,10 +31,14 @@ class AvisoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $req)
     {
-        return view('avisos.create');
-    }
+       // $push_notifications = PushNotification::orderBy('created_at', 'desc')->get();
+
+
+
+            return view('avisos.create');
+        }
 
 
     /**
@@ -50,12 +56,31 @@ class AvisoController extends Controller
 
 
    ]);
-
+        $url = 'https://fcm.googleapis.com/fcm/send';
+        $dataArr = array('click_action' => 'FLUTTER_NOTIFICATION_CLICK', 'id' => $request->id, 'status' => "done");
+        $notification = array('title' => $request->titulo, 'text' => $request->detalle,  'sound' => 'default', 'badge' => '1',);
+        $arrayToSend = array('to' => "/topics/all", 'notification' => $notification, 'data' => $dataArr, 'priority' => 'high');
+        $fields = json_encode($arrayToSend);
+        $headers = array(
+            'Authorization: key=' .
+            "AAAArAFPXOA:APA91bHmy0-G9Ak6m0GhM6yg1zI-phjv5DgxweFvFeJPArM_0OabL4dglTQ92mctAsyJZZkHnZ5lqSSIWW-WoIMhhaLD71qbBfl8j17j_gkh8kUDqAhnJQ5lDFT2b-gDDjnBSUSrJBXY",
+            'Content-Type: application/json'
+        );
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
+        $result = curl_exec($ch);
+        //var_dump($result);
+        curl_close($ch);
+        return redirect()->back()->with('success', 'Notification Send successfully');
 
 
         Aviso::create($request->all());
-        return redirect()->route('avisos.index')
-            ->with('success','Aviso creado.');
+        /*return redirect()->route('avisos.index')
+            ->with('success','Aviso creado.');*/
 
 
 
@@ -69,7 +94,12 @@ class AvisoController extends Controller
      */
     public function show(Aviso $aviso)
     {
+
+
+
         //return view('avisos.show',compact('aviso'));
+
+
 
         return $aviso;
     }

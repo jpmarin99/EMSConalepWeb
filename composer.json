@@ -19,7 +19,8 @@
         "laravel/framework": "^7.29",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^2.0",
-        "pdfcrowd/pdfcrowd": "^5.0"
+        "pdfcrowd/pdfcrowd": "^5.0",
+      "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
